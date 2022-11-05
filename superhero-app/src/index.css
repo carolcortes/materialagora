@@ -1,0 +1,6 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', 'Arial', 'Helvetica';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

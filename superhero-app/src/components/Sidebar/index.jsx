@@ -1,13 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import appContext from '../../context/appContext';
 import './sidebar.css';
 
 const Sidebar = () => {
   const { favoriteList } = useContext(appContext);
-
-  useEffect(() => {
-    console.log(favoriteList);
-  }, [favoriteList])
 
   return (
     <aside className="sidebar">

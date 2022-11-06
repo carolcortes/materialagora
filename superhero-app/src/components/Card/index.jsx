@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
+import { MdRadioButtonUnchecked } from 'react-icons/md'
 import './card.css';
 import appContext from '../../context/appContext';
 
 const Card = ({ superhero }) => {
   const { id, name, image, alignment, publisher } = superhero;
   const [favorite, setFavorite] = useState(false);
+  const [selected, setSelected] = useState(false);
   const { setFavoriteList } = useContext(appContext);
 
   const favoriteClick = async () => {
@@ -19,20 +22,28 @@ const Card = ({ superhero }) => {
     }
   }
 
+  const groupOptionsClick = async () => {
+    setSelected(!selected);
+  }
+
   return (
     <div
       className={`hero-card ${alignment === 'good' ? 'green' : 'red'}-hover`}
-      onClick={() => {console.log('click')}}
     >
-      <p className="hero-id">{id}</p>
-      <img src={image} alt={`${name} image`} />
+      <div className="hero-status">
+        <p className="hero-id">{id}</p>
+        <p>{alignment === 'good' ? 'HERÓI' : 'VILÃO'}</p>
+      </div>
+      <img src={image} alt={`${name} image`} onClick={() => {console.log('click')}} />
       <h3>{name}</h3>
       <p>{publisher}</p>
-      <div className='favorite-card'>
-        <p>{alignment === 'good' ? 'Herói' : 'Vilão'}</p>
-        { favorite 
-          ? <AiFillStar id={id} onClick={favoriteClick} /> 
-          : <AiOutlineStar id={id} onClick={favoriteClick} /> }
+      <div className="select-options">
+          { favorite 
+            ? <AiFillStar id={id} onClick={favoriteClick} /> 
+            : <AiOutlineStar id={id} onClick={favoriteClick} /> }
+          { selected 
+            ? <IoMdCheckmarkCircleOutline id={id} onClick={groupOptionsClick} /> 
+            : <MdRadioButtonUnchecked id={id} onClick={groupOptionsClick} /> }
       </div>
     </div>
   );

@@ -1,14 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 import './card.css';
+import appContext from '../../context/appContext';
 
 const Card = ({ superhero }) => {
   const { id, name, image, alignment, publisher } = superhero;
   const [favorite, setFavorite] = useState(false);
+  const { setFavoriteList } = useContext(appContext);
 
-  const favoriteClick = () => {
-    setFavorite(!favorite)
+  const favoriteClick = async () => {
+    if (favorite) {
+      setFavoriteList((prevState) => prevState.filter((el) => el.id !== id));
+      setFavorite(false);
+    } else {
+      setFavorite(true);
+      setFavoriteList((prevState) => [...prevState, { name, id, image }]);
+    }
   }
 
   return (
@@ -22,7 +30,9 @@ const Card = ({ superhero }) => {
       <p>{publisher}</p>
       <div className='favorite-card'>
         <p>{alignment === 'good' ? 'Herói' : 'Vilão'}</p>
-        { favorite ? <AiFillStar onClick={favoriteClick} /> : <AiOutlineStar onClick={favoriteClick} /> }
+        { favorite 
+          ? <AiFillStar id={id} onClick={favoriteClick} /> 
+          : <AiOutlineStar id={id} onClick={favoriteClick} /> }
       </div>
     </div>
   );

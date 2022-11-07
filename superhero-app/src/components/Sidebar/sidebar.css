@@ -1,9 +1,10 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border-right: 1px solid black;
   width: 30%;
   max-width: 320px;
+  min-height: 85vh;
 }
 
 .favorite-heroes {

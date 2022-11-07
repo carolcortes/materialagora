@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import appContext from './appContext';
 
 const AppProvider = ({ children }) => {
@@ -12,5 +13,9 @@ const AppProvider = ({ children }) => {
     </appContext.Provider>
   )
 }
+
+AppProvider.propTypes = {
+  children: PropTypes.any,
+}.isRequired;
 
 export default AppProvider;

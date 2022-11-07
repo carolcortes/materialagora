@@ -1,20 +1,27 @@
 import React from 'react';
-import Button from '../Button';
+import PropTypes from 'prop-types';
 import './searchBar.css';
 
-const SearchBar = () => {
+const SearchBar = ({ searchValue, onChange }) => {
+
   return (
     <div className="search-bar">
       <label htmlFor="search-bar">
-        <input 
+        <input
+          value={searchValue}
+          onChange={onChange}
           type="text"
           id="search-bar"
           placeholder="Pesquisar herói ou vilão pelo nome"
         />
       </label>
-      <Button onClick={() => {console.log('pesquisar')}}>Pesquisar</Button>
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  searchValue: PropTypes.string,
+  onChange: PropTypes.func,
+}.isRequired;
 
 export default SearchBar;

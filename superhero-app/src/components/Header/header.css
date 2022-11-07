@@ -1,0 +1,12 @@
+.main-header {
+  align-items: center;
+  border: 1px solid black;
+  display: flex;
+  gap: 1vw;
+  justify-content: center;
+  margin: 0;
+}
+
+.main-header img {
+  max-width: 90px;
+}

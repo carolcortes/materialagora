@@ -1,0 +1,38 @@
+.home-page {
+  display: flex;
+  justify-content: left;
+}
+
+.main-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.cards-container {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2vw;
+  justify-content: center;
+  max-width: 1100px;
+  width: 100%;
+}
+
+.show-button button {
+  margin: 50px;
+  margin-bottom: 20px;
+  width: 200px;
+}
+
+.result-line {
+  height: 50px;
+  width: 500px;
+}
+
+.result-line p {
+  font-size: 15px;
+  margin: 15px;
+  font-weight: 600;
+}

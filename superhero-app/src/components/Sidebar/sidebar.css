@@ -1,25 +1,8 @@
 .sidebar {
+  border-right: 1px solid black;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid black;
-  width: 30%;
   max-width: 320px;
   min-height: 85vh;
-}
-
-.favorite-heroes {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.favorite-line {
-  display: flex;
-  margin-left: 15px;
-  gap: 35px;
-}
-
-.favorite-line img {
-  width: 50px;
-  border-radius: 15px;
+  width: 45%;
 }

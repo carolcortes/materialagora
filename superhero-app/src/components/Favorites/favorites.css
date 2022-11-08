@@ -1,0 +1,91 @@
+.favorite-container {
+  border: 1px solid #363F41;
+  border-radius: 15px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  padding-bottom: 15px;
+}
+
+.favorite-title {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: 13px;
+  font-weight: 500;
+  justify-content: space-around;
+}
+
+.favorite-title svg {
+  font-size: 18px;
+}
+
+.active-arrow {
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+.inactive-arrow {
+  transition: 0.25s;
+}
+
+.favorite-heroes {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.favorite-line {
+  align-items: center;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-between;
+  margin-left: 15px;
+  text-align: left;
+}
+
+.favorite-line svg {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 15px;
+  padding: 1px;
+}
+
+.favorite-line img {
+  border-radius: 5px 15px;
+  width: 50px;
+}
+
+.favorite-line img:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  transform: scale(102%);
+}
+
+.favorite-info h4 {
+  font-size: 15px;
+  margin: 0;
+}
+
+.favorite-info h4:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.hero-status {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-decoration: underline;
+}
+
+.favorite-content {
+  align-items: center;
+  display: flex;
+  gap: 15px;
+  max-width: 250px;
+}

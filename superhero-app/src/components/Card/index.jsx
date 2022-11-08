@@ -10,11 +10,15 @@ const Card = ({ superhero }) => {
   const { id, name, image, alignment, publisher } = superhero;
   const [favorite, setFavorite] = useState(false);
   const [selected, setSelected] = useState(false);
-  const { setFavoriteList, setSelectedCards, groups } = useContext(appContext);
+  const { setFavoriteList, favoriteList, setSelectedCards, groups } = useContext(appContext);
 
   useEffect(() => {
     setSelected(false);
   }, [groups])
+
+  useEffect(() => {
+    setFavorite(favoriteList.some(({ id }) => id === superhero.id))
+  }, [favoriteList])
 
   const favoriteClick = async () => {
     if (favorite) {
@@ -22,7 +26,10 @@ const Card = ({ superhero }) => {
       setFavorite(false);
     } else {
       setFavorite(true);
-      setFavoriteList((prevState) => [...prevState, { name, id, image }]);
+      setFavoriteList((prevState) => [
+        ...prevState,
+        { name, id, image, alignment, publisher},
+      ]);
     }
   }
 

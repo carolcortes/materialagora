@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import appContext from '../../context/appContext';
 import Button from '../Button';
+import Favorites from '../Favorites';
 import './sidebar.css';
 
 const Sidebar = () => {
-  const { favoriteList, groups, selectedCards, setGroups, setSelectedCards } = useContext(appContext);
+  const { groups, selectedCards, setGroups, setSelectedCards } = useContext(appContext);
 
   const createGroup = () => {
     setGroups((prevState) => [...prevState, {groupName: 'grupo', groupList: [selectedCards]}]);
@@ -32,20 +33,7 @@ const Sidebar = () => {
         ))
       )}
       </div>
-      <div className="favorite-container">
-        <h2>Favoritos</h2>
-        {favoriteList.length === 0 && (
-          <p>Você não possui heróis e/ou vilões favoritos</p>
-        )}
-        <div className="favorite-heroes">
-          {favoriteList.map(({image, name, id}) => (
-            <div className="favorite-line" id={id} key={id}>
-              <img src={image} alt={`${name}`} />
-              <h4>{name}</h4>
-            </div>
-          ))}
-        </div>
-      </div>
+      <Favorites />
     </aside>
   );
 }

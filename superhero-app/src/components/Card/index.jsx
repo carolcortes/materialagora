@@ -37,7 +37,10 @@ const Card = ({ superhero }) => {
     if (selected) {
       setSelectedCards((prevState) => prevState.filter((el) => el.id !== id));
     } else {
-      setSelectedCards((prevState) => [...prevState, { name, id, image }]);
+      setSelectedCards((prevState) => [
+        ...prevState,
+        { name, id, image, alignment, publisher},
+      ]);
     }
     setSelected(!selected);
   }

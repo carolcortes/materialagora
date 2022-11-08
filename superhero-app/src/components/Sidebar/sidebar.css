@@ -1,8 +1,14 @@
 .sidebar {
-  border-right: 1px solid black;
   display: flex;
   flex-direction: column;
   max-width: 320px;
   min-height: 85vh;
   width: 45%;
+  gap: 15px;
+  margin-top: 15px;
+  margin-left: 15px;
+}
+
+.sidebar button {
+  width: 100%;
 }

@@ -2,13 +2,17 @@ import React, { useContext } from 'react';
 import appContext from '../../context/appContext';
 import Button from '../Button';
 import Favorites from '../Favorites';
+import Groups from '../Groups';
 import './sidebar.css';
 
 const Sidebar = () => {
-  const { groups, selectedCards, setGroups, setSelectedCards } = useContext(appContext);
+  const { selectedCards, setGroups, setSelectedCards } = useContext(appContext);
 
   const createGroup = () => {
-    setGroups((prevState) => [...prevState, {groupName: 'grupo', groupList: [selectedCards]}]);
+    setGroups((prevState) => [
+      ...prevState,
+      {groupName: `grupo ${prevState.length + 1}`, groupList: selectedCards},
+    ]);
     setSelectedCards([]);
   }
 
@@ -20,19 +24,7 @@ const Sidebar = () => {
       >
         Criar grupo
       </Button>
-      <div className="groups-container">
-      <h2>Grupos</h2>
-      { groups.length === 0 && (
-        <p>Selecione heróis e/ou vilões para cadastrar um novo grupo!</p>
-      ) }
-      {groups && (
-        groups.map(({ groupName }) => (
-          <div key={groupName}>
-            <h4>{groupName}</h4>
-          </div>
-        ))
-      )}
-      </div>
+      <Groups />
       <Favorites />
     </aside>
   );

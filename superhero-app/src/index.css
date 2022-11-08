@@ -2,3 +2,12 @@ body {
   margin: 0;
   font-family: 'Montserrat', 'Arial', 'Helvetica';
 }
+
+.active-arrow {
+  transform: rotate(90deg);
+  transition: 0.5s;
+}
+
+.inactive-arrow {
+  transition: 0.25s;
+}

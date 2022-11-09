@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
+import PopUp from '../../components/popUp';
 import SearchBar from '../../components/SearchBar';
 import Sidebar from '../../components/Sidebar';
 import superheroAPI from '../../services/superheroAPI';
@@ -97,6 +98,7 @@ const Home = () => {
           ) }
         </div>
       </main>
+      <PopUp />
     </div>
   );
 }

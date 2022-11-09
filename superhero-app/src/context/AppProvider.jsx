@@ -6,6 +6,7 @@ const AppProvider = ({ children }) => {
   const [favoriteList, setFavoriteList] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [groups, setGroups] = useState([]);
+  const [rename, setRename] = useState({status: false});
 
   const context = {
     favoriteList, 
@@ -14,6 +15,8 @@ const AppProvider = ({ children }) => {
     setSelectedCards,
     groups,
     setGroups,
+    rename,
+    setRename,
   };
 
   return (

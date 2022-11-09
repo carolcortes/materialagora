@@ -6,20 +6,17 @@ import Groups from '../Groups';
 import './sidebar.css';
 
 const Sidebar = () => {
-  const { selectedCards, setGroups, setSelectedCards } = useContext(appContext);
+  const { selectedCards } = useContext(appContext);
 
-  const createGroup = () => {
-    setGroups((prevState) => [
-      ...prevState,
-      {groupName: `grupo ${prevState.length + 1}`, groupList: selectedCards},
-    ]);
-    setSelectedCards([]);
+  const showPopUp = () => {
+    const popUp = document.querySelector('.pop-up');
+    popUp.classList.add('show-pop-up')
   }
 
   return (
     <aside className="sidebar">
       <Button 
-        onClick={createGroup}
+        onClick={showPopUp}
         disabled={selectedCards.length === 0}
       >
         Criar grupo

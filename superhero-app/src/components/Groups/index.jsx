@@ -6,27 +6,29 @@ import { RiEdit2Line } from 'react-icons/ri';
 import './groups.css';
 
 const Groups = () => {
-  const { groups, setGroups } = useContext(appContext);
+  const { groups, setGroups, setRename } = useContext(appContext);
   const [isActive, setIsActive] = useState(false);
-  const [activeGroup, setActiveGroup] = useState(false);
 
   const showGroups = () => {
     setIsActive(!isActive);
     if (isActive) {
-      setActiveGroup(false);
+      setGroups((prevState) => prevState.map((group) => ({...group, visible: false})))
     }
   }
 
-  const showOneGroup = () => {
-    setActiveGroup(!activeGroup);
+  const showOneGroup = (groupName) => {
+    setGroups((prevState) => prevState.map((group) => group.groupName === groupName
+      ? {...group, visible: !group.visible} : {...group}))
   }
 
   const removeGroup = ({target}) => {
     setGroups((prevState) => prevState.filter((el) => el.groupName !== target.id));
   }
 
-  const renameGroup = ({target}) => {
-    console.log(target.id)
+  const showPopUp = (groupName) => {
+    const popUp = document.querySelector('.pop-up');
+    popUp.classList.add('show-pop-up');
+    setRename({group: groupName, status: true});
   }
 
   const removeHeroFromGroup = (id, groupName) => {
@@ -51,19 +53,19 @@ const Groups = () => {
         <p>Selecione heróis e/ou vilões para cadastrar um novo grupo!</p>
       ) }
       {groups && isActive && (
-        groups.map(({ groupName, groupList }) => (
+        groups.map(({ groupName, groupList, visible }) => (
           <div key={groupName} className="group-content">
             <div className="group-header">
               <div className="group-settings">
                 <FaRegWindowClose id={groupName} onClick={removeGroup} />
-                <RiEdit2Line id={groupName} onClick={renameGroup} />
+                <RiEdit2Line onClick={() => showPopUp(groupName)} />
               </div>
-              <div className="group-name" onClick={showOneGroup}>
+              <div className="group-name" onClick={() => showOneGroup(groupName)}>
                 <h4>{groupName}</h4>
-                <MdArrowForwardIos className={`${activeGroup ? 'active' : 'inactive'}-group`} />
+                <MdArrowForwardIos className={`${visible ? 'active' : 'inactive'}-group`} />
               </div>
             </div>
-            {activeGroup && groupList.map((hero) => (
+            {visible && groupList.map((hero) => (
                 <div className="group-line" id={hero.id} name={groupName} key={hero.name}>
                   <div className="hero-content">
                     <img src={hero.image} alt={`${hero.name} image`} />

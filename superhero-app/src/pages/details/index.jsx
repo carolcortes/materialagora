@@ -13,6 +13,7 @@ const Details = () => {
     image,
     powerstats,
     biography,
+    appearance,
   } = superhero
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const Details = () => {
   const loadSuperhero = async () => {
     const { data } = await superheroAPI.get(`${id}`);
     if (data) setSuperhero(data);
+    console.log(data)
   }
 
   return (
@@ -35,10 +37,15 @@ const Details = () => {
           <h1>{name}</h1>
           <div className="details-content">
             <img src={image.url} alt={`${name} image`} />
-            <div>
+            <div className="biography">
               <h4>Biografia</h4>
               <p><span>Nome completo:</span> {biography['full-name']}</p>
               <p><span>Local de nascimento:</span> {biography['place-of-birth']}</p>
+              <p><span>Raça:</span> {appearance.race === 'Human' ? 'Humano' : appearance.race}</p>
+              <p>
+                <span>Peso e altura: </span>
+                {appearance.weight[1]}, {appearance.height[1]}
+              </p>
               <p><span>Alinhamento:</span> {biography.alignment === 'bad' ? 'Vilão' : 'Herói'}</p>
               <p><span>Primeira apariçao:</span> {biography['first-appearance']}</p>
               <p><span>Editora:</span> {biography.publisher}</p>

@@ -3,8 +3,10 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import { FaRegWindowClose } from 'react-icons/fa';
 import appContext from '../../context/appContext';
 import './favorites.css';
+import { useHistory } from 'react-router-dom';
 
 const Favorites = () => {
+  const history = useHistory();
   const { favoriteList, setFavoriteList } = useContext(appContext);
   const [isActive, setIsActive] = useState(false);
 
@@ -14,6 +16,10 @@ const Favorites = () => {
 
   const removeFavorite = ({target}) => {
     setFavoriteList((prevState) => prevState.filter((el) => el.id !== target.id));
+  }
+
+  const getHeroDetails = (id) => {
+    history.push(`/details/${id}`)
   }
 
   return (
@@ -32,9 +38,9 @@ const Favorites = () => {
           {favoriteList.map(({image, name, id, publisher, alignment}) => (
             <div className="favorite-line" id={id} key={id}>
               <div className="favorite-content">
-                <img src={image} alt={`${name}`} />
+                <img onClick={ () => getHeroDetails(id)} src={image} alt={`${name}`} />
                 <div className="favorite-info">
-                  <h4>{name}</h4>
+                  <h4 onClick={ () => getHeroDetails(id)}>{name}</h4>
                   <p>{publisher}</p>
                   <p className="hero-status">{alignment === 'good' ? 'HERÓI' : 'VILÃO'}</p>
                 </div>

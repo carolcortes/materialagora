@@ -4,6 +4,7 @@ Projeto desenvolvido para o desafio técnico da [Material Agora](https://github.
 
 ### Primeiros passos:
 1. Clone o repositório
+  ``git clone git@github.com:carolcortes/materialagora.git``
 2. Na pasta clonada, entre na pasta superhero-app
   ``cd superhero-app``
 3. Inicie o container da aplicação

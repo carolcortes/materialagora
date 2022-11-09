@@ -38,7 +38,7 @@ const Groups = () => {
     const removeHero = groupList.filter((hero) => hero.id !== id);
 
     const newGroups = groups.filter((el) => el.groupName !== groupName);
-    if (removeHero.length > 0) newGroups.push({ groupName, groupList: removeHero });
+    if (removeHero.length > 0) newGroups.push({ groupName, groupList: removeHero, visible: true });
 
     setGroups(newGroups);
   }

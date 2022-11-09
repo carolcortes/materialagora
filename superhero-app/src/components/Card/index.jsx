@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
@@ -10,7 +10,15 @@ const Card = ({ superhero }) => {
   const { id, name, image, alignment, publisher } = superhero;
   const [favorite, setFavorite] = useState(false);
   const [selected, setSelected] = useState(false);
-  const { setFavoriteList } = useContext(appContext);
+  const { setFavoriteList, favoriteList, setSelectedCards, groups } = useContext(appContext);
+
+  useEffect(() => {
+    setSelected(false);
+  }, [groups])
+
+  useEffect(() => {
+    setFavorite(favoriteList.some(({ id }) => id === superhero.id))
+  }, [favoriteList])
 
   const favoriteClick = async () => {
     if (favorite) {
@@ -18,11 +26,22 @@ const Card = ({ superhero }) => {
       setFavorite(false);
     } else {
       setFavorite(true);
-      setFavoriteList((prevState) => [...prevState, { name, id, image }]);
+      setFavoriteList((prevState) => [
+        ...prevState,
+        { name, id, image, alignment, publisher},
+      ]);
     }
   }
 
   const groupOptionsClick = async () => {
+    if (selected) {
+      setSelectedCards((prevState) => prevState.filter((el) => el.id !== id));
+    } else {
+      setSelectedCards((prevState) => [
+        ...prevState,
+        { name, id, image, alignment, publisher},
+      ]);
+    }
     setSelected(!selected);
   }
 
@@ -41,7 +60,7 @@ const Card = ({ superhero }) => {
           { favorite 
             ? <AiFillStar id={id} onClick={favoriteClick} /> 
             : <AiOutlineStar id={id} onClick={favoriteClick} /> }
-          { selected 
+          { selected
             ? <IoMdCheckmarkCircleOutline id={id} onClick={groupOptionsClick} /> 
             : <MdRadioButtonUnchecked id={id} onClick={groupOptionsClick} /> }
       </div>

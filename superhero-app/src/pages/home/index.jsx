@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Button from '../../components/Button';
 import Card from '../../components/Card';
+import PopUp from '../../components/popUp';
 import SearchBar from '../../components/SearchBar';
 import Sidebar from '../../components/Sidebar';
 import superheroAPI from '../../services/superheroAPI';
@@ -44,7 +45,7 @@ const Home = () => {
         }
       }
       heroes.sort((a, b) => a.id - b.id);
-    } else {
+    } else if (searchValue.length === 0) {
       for (let n = 1; n < loadLength; n += 1) {
         const { data } = await superheroAPI.get(`${n}`);
         const { id, name, image, biography } = data;
@@ -89,12 +90,15 @@ const Home = () => {
         </div>
         <div className="show-button">
           { superheroes.length >= 8 && (
-            <Button onClick={handleButtonClick}>
+            <Button
+              disabled={superheroes.length === searchLength}
+              onClick={handleButtonClick}>
               Mostrar mais
             </Button>
           ) }
         </div>
       </main>
+      <PopUp />
     </div>
   );
 }

@@ -4,8 +4,20 @@ import appContext from './appContext';
 
 const AppProvider = ({ children }) => {
   const [favoriteList, setFavoriteList] = useState([]);
+  const [selectedCards, setSelectedCards] = useState([]);
+  const [groups, setGroups] = useState([]);
+  const [rename, setRename] = useState({status: false});
 
-  const context = {favoriteList, setFavoriteList}
+  const context = {
+    favoriteList, 
+    setFavoriteList,
+    selectedCards,
+    setSelectedCards,
+    groups,
+    setGroups,
+    rename,
+    setRename,
+  };
 
   return (
     <appContext.Provider value={ context }>

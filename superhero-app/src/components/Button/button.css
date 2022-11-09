@@ -16,3 +16,9 @@
   background-color: white;
   color: black;
 }
+
+.button:disabled {
+  background-color: grey;
+  color: rgb(214, 214, 214);
+  cursor: not-allowed;
+}

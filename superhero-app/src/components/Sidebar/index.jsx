@@ -1,24 +1,28 @@
 import React, { useContext } from 'react';
 import appContext from '../../context/appContext';
+import Button from '../Button';
+import Favorites from '../Favorites';
+import Groups from '../Groups';
 import './sidebar.css';
 
 const Sidebar = () => {
-  const { favoriteList } = useContext(appContext);
+  const { selectedCards } = useContext(appContext);
+
+  const showPopUp = () => {
+    const popUp = document.querySelector('.pop-up');
+    popUp.classList.add('show-pop-up')
+  }
 
   return (
     <aside className="sidebar">
-      <h2>Favoritos</h2>
-      {favoriteList.length === 0 && (
-        <p>Você não possui heróis e/ou vilões favoritos</p>
-      )}
-      <div className="favorite-heroes">
-        {favoriteList.map(({image, name, id}) => (
-          <div className="favorite-line" id={id} key={id}>
-            <img src={image} alt={`${name}`} />
-            <h4>{name}</h4>
-          </div>
-        ))}
-      </div>
+      <Button 
+        onClick={showPopUp}
+        disabled={selectedCards.length === 0}
+      >
+        Criar grupo
+      </Button>
+      <Groups />
+      <Favorites />
     </aside>
   );
 }

@@ -36,3 +36,7 @@
   margin: 15px;
   font-weight: 600;
 }
+
+.sidebar p {
+  margin: 0
+}

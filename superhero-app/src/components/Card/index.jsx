@@ -5,8 +5,10 @@ import { IoMdCheckmarkCircleOutline } from 'react-icons/io'
 import { MdRadioButtonUnchecked } from 'react-icons/md'
 import './card.css';
 import appContext from '../../context/appContext';
+import { useHistory } from 'react-router-dom';
 
 const Card = ({ superhero }) => {
+  const history = useHistory();
   const { id, name, image, alignment, publisher } = superhero;
   const [favorite, setFavorite] = useState(false);
   const [selected, setSelected] = useState(false);
@@ -45,6 +47,10 @@ const Card = ({ superhero }) => {
     setSelected(!selected);
   }
 
+  const getHeroDetails = (id) => {
+    history.push(`/details/${id}`)
+  }
+
   return (
     <div
       className={`hero-card ${alignment === 'good' ? 'green' : 'red'}-hover`}
@@ -53,8 +59,8 @@ const Card = ({ superhero }) => {
         <p className="hero-id">{id}</p>
         <p>{alignment === 'good' ? 'HERÓI' : 'VILÃO'}</p>
       </div>
-      <img src={image} alt={`${name} image`} onClick={() => {console.log('click')}} />
-      <h3>{name}</h3>
+      <img src={image} alt={`${name} image`} onClick={ () => getHeroDetails(id)} />
+      <h3 onClick={ () => getHeroDetails(id)}>{name}</h3>
       <p>{publisher}</p>
       <div className="select-options">
           { favorite 

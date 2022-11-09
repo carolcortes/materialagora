@@ -4,8 +4,10 @@ import { MdArrowForwardIos } from 'react-icons/md';
 import { FaRegWindowClose } from 'react-icons/fa';
 import { RiEdit2Line } from 'react-icons/ri';
 import './groups.css';
+import { useHistory } from 'react-router-dom';
 
 const Groups = () => {
+  const history = useHistory();
   const { groups, setGroups, setRename } = useContext(appContext);
   const [isActive, setIsActive] = useState(false);
 
@@ -40,6 +42,10 @@ const Groups = () => {
 
     setGroups(newGroups);
   }
+
+  const getHeroDetails = (id) => {
+    history.push(`/details/${id}`)
+  }
   
   return (
     <div 
@@ -68,9 +74,13 @@ const Groups = () => {
             {visible && groupList.map((hero) => (
                 <div className="group-line" id={hero.id} name={groupName} key={hero.name}>
                   <div className="hero-content">
-                    <img src={hero.image} alt={`${hero.name} image`} />
+                    <img 
+                      onClick={ () => getHeroDetails(hero.id)}
+                      src={hero.image}
+                      alt={`${hero.name} image`} 
+                    />
                     <div className="group-info">
-                      <h4>{hero.name}</h4>
+                      <h4 onClick={ () => getHeroDetails(hero.id)}>{hero.name}</h4>
                       <p>{hero.publisher}</p>
                       <p className="hero-status">{hero.alignment === 'good' ? 'HERÓI' : 'VILÃO'}</p>
                     </div>

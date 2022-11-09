@@ -56,7 +56,7 @@ const Groups = () => {
         <MdArrowForwardIos className={`${isActive ? 'active' : 'inactive'}-arrow`} />
       </div>
       { groups.length === 0 && isActive && (
-        <p>Selecione heróis e/ou vilões para cadastrar um novo grupo!</p>
+        <p className="no-group">Selecione heróis e/ou vilões para cadastrar um novo grupo!</p>
       ) }
       {groups && isActive && (
         groups.map(({ groupName, groupList, visible }) => (

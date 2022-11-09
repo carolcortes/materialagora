@@ -1,12 +1,13 @@
 .favorite-container {
+  background-color: #fff;
   border: 1px solid #363F41;
   border-radius: 15px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
   cursor: default;
   display: flex;
   flex-direction: column;
+  font-size: 15px;
   padding: 5px 10px;
-  padding-bottom: 15px;
 }
 
 .favorite-title {
@@ -15,6 +16,7 @@
   display: flex;
   font-size: 13px;
   font-weight: 500;
+  height: 50px;
   justify-content: space-around;
 }
 
@@ -26,6 +28,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 10px;
   width: 100%;
 }
 

@@ -19,36 +19,28 @@ const Home = () => {
     loadSuperheroes();
   }, [loadLength, searchValue]);
 
+  useEffect(() => {
+    resetLoadLength();
+  }, [searchValue])
+
+  const resetLoadLength = () => {
+    setLoadLength(9)
+  }
+
   const onInputChange = ({ target }) => {
     setSearchValue(target.value);
   }
 
   const loadSuperheroes = async () => {
     const heroes = [];
-    if (searchValue) {
-      const { data } = await superheroAPI.get(`search/${searchValue}`);
-      if (data.response === 'error') {
-        setSearchLength(0);
-        return setSuperheroes(heroes);
-      }
-      for (let n = loadLength - 2; n >= 0; n -= 1) {
-        if (data.results[n]) {
-          const { id, name, image, biography } = data.results[n];
-          heroes.push({
-            id,
-            name,
-            image: image.url,
-            alignment: biography.alignment,
-            publisher: biography.publisher
-          });
-          setSearchLength(data.results.length);
-        }
-      }
-      heroes.sort((a, b) => a.id - b.id);
-    } else if (searchValue.length === 0) {
-      for (let n = 1; n < loadLength; n += 1) {
-        const { data } = await superheroAPI.get(`${n}`);
-        const { id, name, image, biography } = data;
+    const { data } = await superheroAPI.get(`search/${searchValue || 'a'}`);
+    if (data.response === 'error') {
+      setSearchLength(0);
+      return setSuperheroes(heroes);
+    }
+    for (let n = loadLength - 2; n >= 0; n -= 1) {
+      if (data.results[n]) {
+        const { id, name, image, biography } = data.results[n];
         heroes.push({
           id,
           name,
@@ -56,8 +48,10 @@ const Home = () => {
           alignment: biography.alignment,
           publisher: biography.publisher
         });
+        setSearchLength(data.results.length);
       }
     }
+    heroes.sort((a, b) => a.id - b.id);
     setSuperheroes(heroes);
   };
 

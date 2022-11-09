@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# SuperHero App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto desenvolvido para o desafio técnico da [Material Agora](https://github.com/materialagora).
 
-## Available Scripts
+### Primeiros passos:
+1. Clone o repositório
+2. Na pasta clonada, entre na pasta superhero-app
+  ``cd superhero-app``
+3. Inicie o container da aplicação
+  ``docker-compose up``
+4. Acesse a aplicação através da porta 3001: http://localhost:3001/
 
-In the project directory, you can run:
+### Desenvolvimento:
+- Projeto de Front-end de uma aplicação para consulta de heróis e vilões de diferentes editoras. 
 
-### `npm start`
+- Desenvolvido com React.js, utilizando React Router, React Hooks e Context API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Integração com a API de super-heróis [SuperHero API](https://www.superheroapi.com/) utilizando a biblioteca [Axios](https://axios-http.com/ptbr/docs/intro).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Conteinerização da aplicação em React com Docker.
 
-### `npm test`
+### Utilização da aplicação:
+Ao utilizar a aplicação, o usuário é capaz de:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Na página inicial, visualizar os Cards de cada herói;
+  - Realizar a busca de heróis pelo nome;
+  - Adicionar ou remover os heróis escolhidos pelo usuário aos favoritos;
+  - Selecionar os heróis e adicioná-los a um novo grupo nomeado pelo usuário;
+  - Na barra de navegação lateral, visualizar ou remover os heróis favoritados;
+  - Na barra de navegação lateral, visualizar, remover ou editar o nome dos grupos criados.
+  - Remover um usuário individualmente de cada grupo.
+  - Acessar a página de detalhes clicando na foto ou nome de cada herói.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+###### Projeto desenvolvido por: [Carol Cortes](https://github.com/carolcortes)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  <a href = "mailto:caroline.ocortes@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/carolinecortess/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>

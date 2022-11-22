@@ -2,6 +2,8 @@
 
 Projeto desenvolvido para o desafio técnico da [Material Agora](http://www.materialagora.com.br/).
 
+https://carolcortes.github.io/materialagora/
+
 ## Desafio
 
 A Material Agora nasceu para descomplicar o dia a dia de todos que estão realizando obras através de uma forma simples de comprar sem ter que gastar tempo com pesquisa, deslocamento e transporte.

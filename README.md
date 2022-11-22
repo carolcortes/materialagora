@@ -1,13 +1,36 @@
 # SuperHero App
 
-Projeto desenvolvido para o desafio técnico da [Material Agora](https://github.com/materialagora).
+Projeto desenvolvido para o desafio técnico da [Material Agora](http://www.materialagora.com.br/).
+
+## Desafio
+
+A Material Agora nasceu para descomplicar o dia a dia de todos que estão realizando obras através de uma forma simples de comprar sem ter que gastar tempo com pesquisa, deslocamento e transporte.
+
+Para o desafio você precisa criar um app basico inspirado em super heróis e vilões utilizando a SuperHeroAPI como fonte de dados. A app deverá conter um CRUD básico dos heróis e o gerenciamento de listas, como descrito abaixo nos requisitos:
+
+- O app deve ser escrito usando o framework **React**;
+- Consumir os dados dos heróis diretamente da https://superheroapi.com;
+- Ser possível visualizar todos os heróis disponíveis;
+- Ser possível pesquisar um herói/vilao pelo nome;
+- Ser possível visualizar cada herói individualmente e suas respectivas características;
+- Ser possível criar, editar e visualizar grupos de heróis (listas) com nome customizado;
+- Ser possível adicionar ou remover um herói/vilao de uma lista.
+
+> Pensar no app como um pequeno e-commerce onde os heróis/viloes sao os produtos pode ajudar.
 
 ### Primeiros passos:
 1. Clone o repositório
   ``git clone git@github.com:carolcortes/materialagora.git``
-2. Na pasta clonada, entre na pasta superhero-app
-  ``cd superhero-app``
-3. Inicie o container da aplicação
+
+#### Acesso da aplicação local:
+2. No repositório clonado, instale as dependências do projeto:
+  ``npm install``
+3. Inicie o app para visualização da página e acesse através da porta 3000:
+  ``npm start``
+  - http://localhost:3000/ 
+
+#### Acesso da aplicação local com Docker:
+2. No repositório clonado, inicie o container da aplicação:
   ``docker-compose up``
 4. Acesse a aplicação através da porta 3001: http://localhost:3001/
 

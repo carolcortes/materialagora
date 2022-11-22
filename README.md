@@ -1,65 +1,39 @@
-# A empresa
+# SuperHero App
 
-A Material Agora nasceu para descomplicar o dia a dia de todos que estão realizando obras através de uma forma simples de comprar sem ter que gastar tempo com pesquisa, deslocamento e transporte.
+Projeto desenvolvido para o desafio técnico da [Material Agora](https://github.com/materialagora).
 
-# carreiras
-Nossa equipe de engenharia é 100% remoto e usamos as seguintes tecnologias:
-- Frontend: ReactJS, Tailwind, NuxtJS, Docker;
-- Backend: Golang, PostgreSQL, MongoDB, RabbitAMQP, Docker.
+### Primeiros passos:
+1. Clone o repositório
+  ``git clone git@github.com:carolcortes/materialagora.git``
+2. Na pasta clonada, entre na pasta superhero-app
+  ``cd superhero-app``
+3. Inicie o container da aplicação
+  ``docker-compose up``
+4. Acesse a aplicação através da porta 3001: http://localhost:3001/
 
-# Como faço para trabalhar como desenvolvedor?
+### Desenvolvimento:
+- Projeto de Front-end de uma aplicação para consulta de heróis e vilões de diferentes editoras. 
 
-1. Envie um email para `arthursilva@materialagora.com.br` contendo:
-    - Assunto: desenvolvedor <frontend/backend>
-    - Corpo: Github / LinkedIn / Curriculo / breve texto sobre sua experiência profissional
-2. Faça um fork (ou clone) esse repositório
-3. Complete o desafio abaixo de acordo com a vaga.
-4. Nos envie o desafio da forma que lhe for conveniente - email ou pull request.
+- Desenvolvido com React.js, utilizando React Router, React Hooks e Context API.
 
-# Desafio
-## Desenvolvedor Frontend
-Para o desafio você precisa criar um app basico inspirado em super heróis e vilões **utilizando** a [SuperHeroAPI](https://www.superheroapi.com/) como fonte de dados. A app deverá conter um CRUD básico dos heróis e o gerenciamento de listas, como descrito abaixo nos requisitos.
+- Integração com a API de super-heróis [SuperHero API](https://www.superheroapi.com/) utilizando a biblioteca [Axios](https://axios-http.com/ptbr/docs/intro).
 
-## Requisitos
+- Conteinerização da aplicação em React com Docker.
 
-A app deve ser escrita usando o framework **React**, atendendo aos requisitos abaixo.
+### Utilização da aplicação:
+Ao utilizar a aplicação, o usuário é capaz de:
 
-### Requisitos
-
-O app deve:
-- Consumir os dados dos heróis diretamente da [https://superheroapi.com](https://www.superheroapi.com/);
-- Ser possível visualizar todos os heróis disponíveis;
-- Ser possível pesquisar um herói/vilao pelo nome;
-- Ser possível visualizar cada herói individualmente e suas respectivas características;
-- Ser possível criar, editar e visualizar grupos de heróis (listas) com nome customizado;
-- Ser possível adicionar ou remover um herói/vilao de uma lista;
-
-### Observacoes gerais
-
-Pensar no app como um pequeno e-commerce onde os heróis/viloes sao os produtos pode ajudar.
-
-## Como será a avaliação
-
-A ideia aqui é entender como você toma suas decisões frente a certas adversidades e como você desenvolve através de multiplas funcionalidades.
-
-Pontos que vamos avaliar:
-- **Complexidade**
-  - Código bom é código [legivel e simples](https://medium.com/trainingcenter/golang-d94e16d4b383).
-- **Documentação**
-  - Quais bibliotecas e ferramentas usou?
-  - Como se utiliza a sua aplicação?
-  - Como executamos os testes?
-- Containers
-  - Possui dockerfile ?
-  - É possível subir a aplicação através de um ´docker-compose.yml´?
-- Commits
-  - como você evoluiu seu pensamento durante o projeto, pontualidade e clareza.
-- Testes
-  - Que tipos de testes existem na app?
-  - Como melhoraria os testes?
+  - Na página inicial, visualizar os Cards de cada herói;
+  - Realizar a busca de heróis pelo nome;
+  - Adicionar ou remover os heróis escolhidos pelo usuário aos favoritos;
+  - Selecionar os heróis e adicioná-los a um novo grupo nomeado pelo usuário;
+  - Na barra de navegação lateral, visualizar ou remover os heróis favoritados;
+  - Na barra de navegação lateral, visualizar, remover ou editar o nome dos grupos criados.
+  - Remover um usuário individualmente de cada grupo.
+  - Acessar a página de detalhes clicando na foto ou nome de cada herói.
 
 
-## Considerações
-- as regras de negócio não foram definidas intencionalmente
-- para reduzir a complexidade armazene os dados em memória
+###### Projeto desenvolvido por: [Carol Cortes](https://github.com/carolcortes)
 
+  <a href = "mailto:caroline.ocortes@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/carolinecortess/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>

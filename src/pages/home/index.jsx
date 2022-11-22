@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Button from '../../components/Button';
@@ -6,14 +6,21 @@ import Card from '../../components/Card';
 import PopUp from '../../components/popUp';
 import SearchBar from '../../components/SearchBar';
 import Sidebar from '../../components/Sidebar';
+import appContext from '../../context/appContext';
 import superheroAPI from '../../services/superheroAPI';
 import './home.css';
 
 const Home = () => {
+  const { setSelectedCards } = useContext(appContext);
+
   const [superheroes, setSuperheroes] = useState([]);
   const [loadLength, setLoadLength] = useState(9);
   const [searchValue, setSearchValue] = useState('');
   const [searchLength, setSearchLength] = useState();
+
+  useEffect(() => {
+    setSelectedCards([]);
+  }, []);
 
   useEffect(() => {
     loadSuperheroes();

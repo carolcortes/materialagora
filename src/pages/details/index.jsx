@@ -6,7 +6,8 @@ import './details.css';
 
 const Details = () => {
   const history = useHistory();
-  const id = window.location.pathname.split('/')[2];
+  const id = window.location.hash.split('/')[2];
+
   const [superhero, setSuperhero] = useState({});
   const {
     name,
@@ -27,7 +28,6 @@ const Details = () => {
   const loadSuperhero = async () => {
     const { data } = await superheroAPI.get(`${id}`);
     if (data) setSuperhero(data);
-    console.log(data)
   }
 
   return (
